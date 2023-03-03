@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import productsRoutes from './productsR.js';
 import { config } from 'dotenv';
+import mongodb from 'mongodb';
+import CreateProductTag from './productTag.js';
 config();
 
 
@@ -17,6 +19,17 @@ app.use('/products', productsRoutes);
 app.get("/", (req,res) => {
     return res.send("hello world");
 })
+
+app.delete("/:id", async (req,res) => {
+    const {id} = req.params;
+    console.log(id);
+    const result = await CreateProductTag.deleteOne({ _id: new mongodb.ObjectId(req.params.id)})
+    // const data = await ();
+    // const result = await data.deleteOne(})
+    res.status(!!result.deletedCount? 200:400).json(result);
+    
+})
+
 
 
 
