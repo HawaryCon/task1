@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json()); // was missing
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
+
 app.use('/products', productsRoutes);
 
 
