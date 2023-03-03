@@ -1,5 +1,5 @@
 
-import CreateProductTag from "../models/productTag.js"
+import CreateProductTag from "./productTag.js"
 export const getProducts = async (req, res) => {
     try {
         const productTag = await CreateProductTag.find();

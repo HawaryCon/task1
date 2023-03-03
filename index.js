@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import productsRoutes from './routes/products.js';
+import productsRoutes from './productsR.js';
 import { config } from 'dotenv';
 config();
 
@@ -14,6 +14,9 @@ app.use(cors());
 
 app.use('/products', productsRoutes);
 
+app.get("/", (req,res) => {
+    return res.send("hello world");
+})
 
 
 
