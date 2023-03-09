@@ -1,8 +1,9 @@
 
-import CreateProductTag from "./productTag.js"
+
+import CreatePT from "./pscheme.js";
 export const getProducts = async (req, res) => {
     try {
-        const productTag = await CreateProductTag.find();
+        const productTag = await CreatePT.find();
 
         console.log(productTag);
 
@@ -22,7 +23,7 @@ export const createProduct = async (req, res) => {
            return res.status(420).json({ message: "please enter the product price" });
        
     }
-   const newProductTag = new CreateProductTag(productTag); 
+   const newProductTag = new CreatePT(productTag); 
    
     try {
         await newProductTag.save().then(data => {

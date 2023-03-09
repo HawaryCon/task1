@@ -39,4 +39,3 @@ mongoose.connect(process.env.CONNECTION_URI , {useNewUrlParser: true , useUnifie
     .then(() => app.listen(PORT, () => console.log(`server is running on port : ${PORT}`) ) )
     .catch((error) => console.log(error.message));
 
-//mongoose.set('useFindAndModify', true);  --not working for some reason
