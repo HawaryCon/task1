@@ -24,8 +24,7 @@ app.delete("/:id", async (req,res) => {
     const {id} = req.params;
     console.log(id);
     const result = await CreatePT.deleteOne({ _id: new mongodb.ObjectId(req.params.id)})
-    // const data = await ();
-    // const result = await data.deleteOne(})
+   
     res.status(!!result.deletedCount? 200:400).json(result);
     
 })

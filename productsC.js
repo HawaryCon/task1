@@ -1,5 +1,5 @@
 
-
+import mongodb from 'mongodb';
 import CreatePT from "./pscheme.js";
 export const getProducts = async (req, res) => {
     try {
@@ -33,6 +33,26 @@ export const createProduct = async (req, res) => {
         
 
    } catch (error) {
-        res.status(409).json({message: error.message});
+        return res.status(420).json({ message: "error" });
+
    } 
+}
+
+export const updateProduct = async (req, res) => {
+    try {       
+        const {id} = req.body;
+        const { price, name, image, description , SKU} = req.body;
+       
+        let result = await CreatePT.findByIdAndUpdate(
+            { _id: new mongodb.ObjectId(id) } , 
+            { price, name, image, description, SKU }
+            )
+        
+        res.status(200).json({message: 'updated successfulyy'});
+        
+        
+    } 
+    catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 }
