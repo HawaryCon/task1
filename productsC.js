@@ -47,8 +47,9 @@ export const updateProduct = async (req, res) => {
             { _id: new mongodb.ObjectId(id) } , 
             { price, name, image, description, SKU }
             )
+        res.status(201).json(result);
         
-        res.status(200).json({message: 'updated successfulyy'});
+        // res.status(200).json({message: 'updated successfulyy'});
         
         
     } 
