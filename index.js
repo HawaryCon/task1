@@ -3,8 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import productsRoutes from './productsR.js';
 import { config } from 'dotenv';
-import mongodb from 'mongodb';
-import CreatePTii from './pscheme2.js';
+
 config();
 
 
@@ -16,18 +15,7 @@ app.use(cors());
 
 app.use('/products', productsRoutes);
 
-app.get("/", (req,res) => {
-    return res.send("hello world");
-})
 
-app.delete("/:id", async (req,res) => {
-    const {id} = req.params;
-    console.log(id);
-    const result = await CreatePTii.deleteOne({ _id: new mongodb.ObjectId(req.params.id)})
-   
-    res.status(!!result.deletedCount? 200:400).json(result);
-    
-})
 
 
 
