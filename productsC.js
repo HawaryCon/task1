@@ -1,9 +1,9 @@
 
 import mongodb from 'mongodb';
-import CreatePT from "./pscheme.js";
+import CreatePTii from "./pscheme2.js";
 export const getProducts = async (req, res) => {
     try {
-        const pScheme = await CreatePT.find();
+        const pScheme = await CreatePTii.find();
 
         console.log(pScheme);
 
@@ -16,14 +16,14 @@ export const getProducts = async (req, res) => {
 export const createProduct = async (req, res) => {
    const pScheme = req.body;
    if (!pScheme.name) {
-       return res.status(420).json({ message: "please enter the product name" });
+       return res.status(400).json({ message: "please enter the product name" });
     }
     else if (!pScheme.price){
        
-           return res.status(420).json({ message: "please enter the product price" });
+       return res.status(400).json({ message: "please enter the price" });
        
     }
-   const newpScheme = new CreatePT(pScheme); 
+   const newpScheme = new CreatePTii(pScheme); 
    
     try {
         await newpScheme.save().then(data => {
@@ -43,7 +43,7 @@ export const updateProduct = async (req, res) => {
         const {id} = req.body;
         const { price, name, image, description , SKU} = req.body;
        
-        let result = await CreatePT.findByIdAndUpdate(
+        let result = await CreatePTii.findByIdAndUpdate(
             { _id: new mongodb.ObjectId(id) } , 
             { price, name, image, description, SKU }
             )

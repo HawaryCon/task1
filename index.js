@@ -4,7 +4,7 @@ import cors from 'cors';
 import productsRoutes from './productsR.js';
 import { config } from 'dotenv';
 import mongodb from 'mongodb';
-import CreatePT from './pscheme.js';
+import CreatePTii from './pscheme2.js';
 config();
 
 
@@ -23,7 +23,7 @@ app.get("/", (req,res) => {
 app.delete("/:id", async (req,res) => {
     const {id} = req.params;
     console.log(id);
-    const result = await CreatePT.deleteOne({ _id: new mongodb.ObjectId(req.params.id)})
+    const result = await CreatePTii.deleteOne({ _id: new mongodb.ObjectId(req.params.id)})
    
     res.status(!!result.deletedCount? 200:400).json(result);
     
