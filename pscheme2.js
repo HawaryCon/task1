@@ -1,4 +1,6 @@
-import mongoose from "mongoose";
+
+const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const pSchemeii = mongoose.Schema(
     {
@@ -18,8 +20,8 @@ const pSchemeii = mongoose.Schema(
     }
 )
 
+pSchemeii.plugin(mongoosePaginate);
+module.exports = mongoose.model('CreatePTii', pSchemeii);
 
-const CreatePTii = mongoose.model('CreatePTii', pSchemeii);
 
 
-export default CreatePTii;

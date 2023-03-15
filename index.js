@@ -1,8 +1,9 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import productsRoutes from './productsR.js';
-import { config } from 'dotenv';
+
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const productsRoutes = require('./productsR.js');
+const { config } = require('dotenv');
 
 config();
 

@@ -1,8 +1,16 @@
-import  express  from 'express';
-import { getProducts, createProduct, updateProduct , deleteProduct } from './productsC.js';
+ 
+const express = require ('express');
+// const createProduct = require('createProduct');
+// const updateProduct = require('updateProduct');
+// const getProducts = require('getProducts');
+// const deleteProduct = require('deleteProduct');
+// const paginatedResults = require('paginatedResults');
+const controller = require('./productsC')
+
 const router = express.Router();
-router.get('/' , getProducts );
-router.post('/create' , createProduct );
-router.patch('/update' ,updateProduct );
-router.delete('/delete' ,deleteProduct );
-export default router;
+
+router.get('/',  controller.getProducts );
+router.post('/create' , controller.createProduct );
+router.patch('/update' ,controller.updateProduct );
+router.delete('/delete' ,controller.deleteProduct );
+module.exports = router;
