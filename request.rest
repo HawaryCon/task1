@@ -1,1 +1,11 @@
-GET http://localhost:5000/products
+GET http://localhost:5000/products?page=1&limit=10
+
+
+# ###
+# POST http://localhost:5000/products/register
+# Content-Type: application/json
+
+# {
+#     "email": "Hawaryy" ,
+#     "password" : "hawary123"
+# }

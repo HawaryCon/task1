@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const productsRoutes = require('./productsR.js');
 const { config } = require('dotenv');
-
+const cookieParser = require("cookie-parser");
 config();
 
 
 
 const app = express();
+app.use(cookieParser());
 app.use(express.json()); // was missing
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
