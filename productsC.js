@@ -22,12 +22,12 @@ exports.getProducts = async (req, res) => {
         
         var options 
         
-        if (req.query.page && req.query.limit) {
+        //if (req.query.page && req.query.limit) {
           options = {
               page: req.query.page ?? 1,
               limit: req.query.limit ?? 8, 
               customLabels: myCustomLabels
-          }
+          //}
   }
 
         let products = await CreatePTii.paginate({}, options)
