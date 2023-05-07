@@ -25,7 +25,7 @@ exports.getProducts = async (req, res) => {
         if (req.query.page && req.query.limit) {
           options = {
               page: req.query.page ?? 1,
-              limit: req.query.limit ?? 10, 
+              limit: req.query.limit ?? 8, 
               customLabels: myCustomLabels
           }
   }
