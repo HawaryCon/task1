@@ -5,11 +5,7 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 const pSchemeii = mongoose.Schema(
     {
         name: String,
-        price: [{   
-                value : Number,
-                size : String,
-                currency : String
-        }],
+        price: Number,
         image: String,
         description: String,
         SKU: {
